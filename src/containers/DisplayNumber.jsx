@@ -1,6 +1,14 @@
 import DisplayNumber from "../components/DisplayNumber";
 import {connect} from 'react-redux';
-export default connect()(DisplayNumber);
+
+// Store의 상태 State를 내려받아서 props로 내려주고 변경될때마다 다시 받아서 props로 내려주는 subscribe역할도 함.
+function mapReduxStateToReactProps(state) {
+  return {
+    number: state.number
+  }
+}
+
+export default connect(mapReduxStateToReactProps)(DisplayNumber);
 
 
 // export default class extends Component {
